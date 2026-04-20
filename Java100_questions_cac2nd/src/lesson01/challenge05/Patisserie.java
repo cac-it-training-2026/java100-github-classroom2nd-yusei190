@@ -60,7 +60,7 @@ public class Patisserie {
 		int totalPrice = 250 * citronBuyCount + 280 * chocolatBuyCount + 320 * pistacheBuyCount;
 
 		System.out.println("\n合計個数    " + totalBuyCount + "個");
-		System.out.println("合計個数    " + totalPrice + "円");
+		System.out.println("合計金額    " + totalPrice + "円");
 		System.out.println("\nをお買い上げですね。");
 		System.out.println("承りました。");
 
