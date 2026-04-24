@@ -72,13 +72,13 @@ public class Explorer {
 				System.out.println("1時間待つよ" + "（" + i + "時間経過）");
 			}
 			i++;
-		} while (i <= 6);
+		} while (i <= 6);//6回目までは繰り返す
 
 		if (lithograph == 3) {
 			System.out.println("洞窟の入り口が開きました。");
 		} else {
 			System.out.println("隊長：");
-			System.out.println(lithograph + "だった...（" + (i - 1) + "時間経過）");
+			System.out.println(lithograph + "だった...（" + (i - 1) + "時間経過）");//74行目でi++していたので今時間はi-1
 			System.out.println("あの時サバ缶に手を付けていなければ...");
 			System.out.println("探検隊は全滅しました。");
 		}

@@ -90,11 +90,12 @@ public class Explorer {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 		//ここにfor文、if文を利用した処理を記述
-		for (int i = 1; i <= 3; i++) {
+		for (int i = 1; i <= 3; i++) {//3時間経過するまで
 			System.out.println("隊長：");
 			System.out.println(i + "時間経過。");
 
-			if (i != 3) {
+			//通り抜けるかどうかの処理
+			if (i != 3) {//3回目ではない場合
 				System.out.print("今通り抜けますか？（はい… 1 : いいえ… その他のキー）＞");
 				String str = br.readLine();
 				int num = Integer.parseInt(str);
@@ -102,13 +103,15 @@ public class Explorer {
 					goTime = i;
 					break;
 				}
-			} else {
+			} else {//3回目の場合
 				goTime = i;
 				System.out.println("もう後がないんで通り抜けますよ。");
 
 			}
 		}
-		if (deepSleepTime == goTime) {
+
+		//トラが起きているかどうかの処理
+		if (deepSleepTime == goTime) {//通り抜けるタイミングと
 			System.out.println("\n隊長：");
 			System.out.println("成功！トラはぐっすり寝ています。");
 		} else {

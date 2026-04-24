@@ -47,7 +47,7 @@ public class Explorer {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 		//ここにfor文を記述する。
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < 5; i++) {//for文で定員である5人目まで繰り返す
 
 			System.out.print("応募する人の名前を入れてください＞");
 

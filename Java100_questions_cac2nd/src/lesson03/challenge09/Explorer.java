@@ -57,11 +57,11 @@ public class Explorer {
 		System.out.println("隊長：");
 		System.out.println("間欠泉が10個あるよ気をつけて！\n");
 
-		int geyser = 0;
-		int damage = 0;
-		for (int i = 0; i < 10; i++) {
+		int geyser = 0;//間欠泉の個数
+		int damage = 0;//ダメージを受けた回数
+		for (int i = 0; i < 10; i++) {//10回繰り返す
 
-			geyser = (int) (Math.random() * 10 % 2);
+			geyser = (int) (Math.random() * 10 % 2);//0か1
 
 			//ここにif文、continue文を利用した処理を記述
 			if (geyser == 0) {

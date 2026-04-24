@@ -58,18 +58,18 @@ public class Explorer {
 		System.out.println("サバ缶を50個以上袋に詰めてください。\n");
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		int targetCans = 50;
-		int inputCans = 0;
+		int targetCans = 50;//目標である50個
+		int inputCans = 0;//実際に入れた個数
 
 		//ここにfor文を利用した処理を記述
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 3; i++) {//3回
 
 			System.out.println("隊長：");
 			System.out.println("あと" + (3 - i) + "回！\n");
 			System.out.print("袋に何個入れますか？>");
 
 			String str = br.readLine();
-			inputCans += Integer.parseInt(str);
+			inputCans += Integer.parseInt(str);//入力された数字を足してから次回にループ
 
 		}
 

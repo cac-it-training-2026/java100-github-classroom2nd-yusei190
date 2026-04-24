@@ -66,15 +66,15 @@ public class Explorer {
 			int length = Integer.parseInt(lengthStr);
 
 			System.out.println("\n隊長：");
-			if (5 <= length && length <= 8) {
-				totalLength += length;
+			if (5 <= length && length <= 8) {//5~8の場合
+				totalLength += length;//入力された数字を登った距離に足していく
 				System.out.println(totalLength + "m登ったよ\n");
 			} else {
 				System.out.println("ロープの長さを間違ってるよ\n");
 			}
 
 			///ここにwhile文を記述する。
-		} while (fullHeight > totalLength);
+		} while (fullHeight > totalLength);//登った距離が30を超えない限り繰り返す
 		System.out.println("登り切ったよ！");
 
 	}
