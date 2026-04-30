@@ -54,12 +54,46 @@ public class WarehouseManager {
 		int[] ABKosanArray1 = new int[5];
 		int[] ABKosanArray2 = new int[5];
 
-
 		//ここに重複チェックおよび値の代入処理を記述する①(1～5)
+		int inputNum = 0;
+		boolean loopFlag = false;
+		for (int i = 0; i < ABKosanArray1.length; i++) {
+			do {
+				loopFlag = false;
+				inputNum = (int) (Math.random() * 10) % 5 + 1;
 
+				for (int j = 0; j < ABKosanArray1.length; j++) {
+					if (ABKosanArray1[j] == inputNum) {
+						loopFlag = true;
+						break;
+					}
+				}
+			} while (loopFlag == true);
+
+			ABKosanArray1[i] = inputNum;
+		}
 
 		//ここに重複チェックおよび値の代入処理を記述する②(6～10)
+		inputNum = 0;
+		loopFlag = false;
+		for (int i = 0; i < ABKosanArray2.length; i++) {
+			do {
+				loopFlag = false;
+				inputNum = (int) (Math.random() * 10) % 10 + 1;
+				if (inputNum > 5)
+					for (int j = 0; j < ABKosanArray2.length; j++) {
+						if (ABKosanArray2[j] == inputNum) {
+							loopFlag = true;
+							break;
+						}
+					}
+				else {
+					loopFlag = true;
+				}
+			} while (loopFlag == true);
 
+			ABKosanArray2[i] = inputNum;
+		}
 
 		System.out.println("E主任：");
 		System.out.println("AB興産から新たに預かった荷物と以前から預かっている荷物の");
@@ -88,11 +122,35 @@ public class WarehouseManager {
 		System.out.println("E主任：");
 		System.out.println("その二つの荷物を奇数群、偶数群で入れ替えてください。\n");
 
-
-
 		//ここに奇数群(ABKosanArray1)と偶数群(ABKosanArray2)に振り分ける処理を記述する。
 
+		int evenNumberIndex = 0;//遇数
+		int oddNumberIndex = 0;//奇数
+		int changeTimes = 0;//入れ替えが行われた回数をカウントする変数
 
+		do {
+			// 1つ目の配列（ABKosanArray1）から、偶数が入っている場所を探す
+			for (int i = evenNumberIndex; i < ABKosanArray1.length; i++) {
+				if (ABKosanArray1[i] % 2 == 0) {//もし偶数を見つけたら
+					evenNumberIndex = i;//記録する
+					break;//ループを抜ける
+				}
+			}
+			// 2つ目の配列（ABKosanArray2）から、奇数が入っている場所を探す
+			for (int i = oddNumberIndex; i < ABKosanArray2.length; i++) {
+				if (ABKosanArray2[i] % 2 == 1) {//もし奇数を見つけたら
+					//ここから入れ替え処理
+					int temp = ABKosanArray1[evenNumberIndex];//配列1の偶数を一時保存
+					ABKosanArray1[evenNumberIndex] = ABKosanArray2[i];
+					ABKosanArray2[i] = temp;
+					//ここまで入れ替え処理
+
+					oddNumberIndex = i;//次回続きから探せるように奇数の場所を更新
+					changeTimes++;//入れ替え回数を1増やす
+					break;//ループ抜ける
+				}
+			}
+		} while (changeTimes < 2);//入れ替えが計2回終わるまでdoの中身を繰り返す
 
 		System.out.println("Yさん：");
 		System.out.println("はい、入れ替えました。");
