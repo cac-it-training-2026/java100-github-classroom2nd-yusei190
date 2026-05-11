@@ -64,10 +64,23 @@ public class Explorer {
 		int fullLength = 300;
 		int member = 0;
 
-
 		//ここにwhile文を利用した処理を記述
+		while (member < 5) {//メンバー5人が終わるまで
+			if (fullLength == 0) {//吊り橋のゴールまでの距離が0なら
+				member++;//次のメンバー
+				fullLength = 300;//ゴールまでの距離をまた300にする
+			} else if (fullLength == 300) {//距離が300のときは新しい人がスタート
+				System.out.println("隊長：");
+				System.out.println((member + 1) + "人目が渡り始めたよ\n");
+				fullLength -= 50;//50ずつ引いていく
+			} else {//0でも300でもないときは渡っている最中
+				fullLength -= 50;
+				System.out.println("隊長：");
+				System.out.println("まだ渡ってるよ\n");
 
+			}
 
+		}
 		System.out.println("全員渡り終わったよ！");
 
 	}

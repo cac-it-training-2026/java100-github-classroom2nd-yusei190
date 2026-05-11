@@ -75,14 +75,29 @@ package lesson03.challenge10;
 
 public class Explorer {
 
-        public static void main(String[] args) {
+	public static void main(String[] args) {
+		System.out.println("隊長：");
+		System.out.println("滝の前に着いたよ！\n");
 
-                System.out.println("隊長：");
-                System.out.println("滝の前に着いたよ！\n");
+		//ここにfor文のネスト、if文を利用した処理を記述する。
+		for (int i = 13; i <= 16; i++) {//「時」は13~16
+			for (int j = 0; j < 60; j++) {//「分」は0~60未満
+				if (i == 13 && j <= 30) {//13時台だけは特別で、時間が13、分が30以下の場合
+					j = 30;//分を「30」とする
+				}
+				if (j % 15 == 0) {//分が15の倍数の場合
+					System.out.println("隊長：");
+					System.out.printf("%d:%02d 待ち遠しいな～\n\n", i, j);
+				}
+				if (i == 16 && j == 30) {//16:30になった場合
+					System.out.println("隊長：");
+					System.out.println("16:30 時間になったよ\n");
+					System.out.println("滝の水流が弱くなりました。\n");
+					System.out.println("やったー！宝物だー！");
+					break;
+				}
+			}
+		}
 
-
-                //ここにfor文のネスト、if文を利用した処理を記述する。
-
-
-        }
+	}
 }
